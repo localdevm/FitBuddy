@@ -1,10 +1,10 @@
 # FitBuddy
 Your favourite Heart Rate Monitor wearable application.
 
-#Project
+##Project
 Monitor the saved data in our database. Now you can view all people and a live feed of their BPM.
 
-#TODO
+##TODO
  * Keep server running 24/7 
  * Add usability to the client
  * Improve interface
