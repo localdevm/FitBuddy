@@ -12,7 +12,7 @@ var dataTable; //Opslagen van data in formaat
 			   //"timestamp" : ISODate(), "Naam": "Maarten"; "pulse": 67
 
 						//TODO Database link here
-	MongoClient.connect('mongodb://localhost:27017/testmaarten', function (err, _db){
+	MongoClient.connect('mongodb://localhost/testmaarten', function (err, _db){
 		if (err) throw err;
 		if (err) console.log(err);
 		console.log("Connected to database");
