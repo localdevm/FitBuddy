@@ -17,7 +17,11 @@ var dataTable; //Opslagen van data in formaat
 		if (err) console.log(err);
 		console.log("Connected to database");
 		db = _db //Als error is , weergeef error
-		dataTable = db.collection('data');
+		dataTable = db.collection('data').find();
+
+		dataTable.each(function(err, doc){
+			console.log(doc);
+		});
 
 	});
 
