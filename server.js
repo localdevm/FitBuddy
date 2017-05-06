@@ -46,7 +46,7 @@ var dataTable; //Opslagen van data in formaat
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
-	app.get('/api/data', function(req, res){
+	app.get('/', function(req, res){
 	  dataTable.find().toArray(function (err, data){
 			console.log(err);
 	    res.status(200).json(data);
@@ -55,7 +55,7 @@ var dataTable; //Opslagen van data in formaat
 	});
 
 	//Hallokes
-	app.post('/api/data', function(req, res){
+	app.post('/', function(req, res){
 	  dataTable.find().toArray(function (err, data){
 			console.log(err);
 	    res.status(200).json(data);
