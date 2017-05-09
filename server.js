@@ -60,9 +60,9 @@ app.post('/api/user', function(req, res){
 				dataTable.find().toArray(function (err, persons){
 					console.log(err);
 						res.status(201).json(data);
-				})
-		})
-}
+				});
+		});
+});
 
 
 
