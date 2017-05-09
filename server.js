@@ -47,19 +47,19 @@ var dataTable; //Opslagen van data in formaat
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 	app.get('/api/data', function(req, res){
-	  dataTable.find().toArray(function (err, data){
+	  dataTable.toArray(function (err, data){
 			console.log(err);
 	    res.status(200).json(data);
-			console.log(data);
+		//	console.log(data);
 		});
 	});
 
 	//Hallokes
 	app.post('/api/data', function(req, res){
-	  dataTable.find().toArray(function (err, data){
+	  dataTable.toArray(function (err, data){
 			console.log(err);
 	    res.status(200).json(data);
-			console.log(data + "hi");
+		//	console.log(data + "hi");
 		});
 	});
 
