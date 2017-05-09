@@ -17,9 +17,9 @@ var dataTable; //Opslagen van data in formaat
 		if (err) console.log(err);
 		console.log("Connected to database");
 		db = _db //Als error is , weergeef error
-		dataTable = db.collection('data').find();
+		dataTable = db.collection('data');
 
-		dataTable.each(function(err, doc){
+		dataTable.find().each(function(err, doc){
 			console.log(doc);
 		});
 
@@ -46,13 +46,13 @@ var dataTable; //Opslagen van data in formaat
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 	app.get('/api/data', function(req, res){
-		dataTable.toArray(function (err, data){
+		dataTable.find().toArray(function (err, data){
 			console.log(err);
 		res.status(200).json(data);
 	})
 	});
 
-app.post('/api/user', function(req, res){
+app.post('/api/data', function(req, res){
 	data = {'timestamp': req.body.date, 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
 	 console.log("entry created");
 	 	dataTable.insert(data, function (err, result){
