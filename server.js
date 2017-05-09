@@ -52,6 +52,21 @@ var dataTable; //Opslagen van data in formaat
 	})
 	});
 
+app.post('/api/user', function(req, res){
+	data = {'timestamp': req.body.date, 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
+	 console.log("entry created");
+	 	dataTable.insert(data, function (err, result){
+			console.log(err);
+				dataTable.find().toArray(function (err, persons){
+					console.log(err);
+						res.status(201).json(data);
+				})
+		})
+}
+
+
+
+
 	//Hallokes
 
 
