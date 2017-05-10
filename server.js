@@ -53,6 +53,7 @@ var dataTable; //Opslagen van data in formaat
 	});
 
 app.post('/api/data', function(req, res){
+	console.log(req.body);
 	data = {'timestamp': req.body.date, 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
 	 console.log("entry created");
 	 	dataTable.insert(data, function (err, result){
