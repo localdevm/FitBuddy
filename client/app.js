@@ -10,7 +10,7 @@ app.controller('MainController', function($scope, $http){
 
 $scope.naam = "maarten";
   $http.post("http://188.226.148.45:3000/api/data",
-  [{ 'timestamp' : $scope.date, 'voornaam' : $scope.naam, 'achternaam' : $scope.achternaam, 'bpm' : $scope.bpm }]).then(function (res) {
+  { 'timestamp' : $scope.date, 'voornaam' : $scope.naam, 'achternaam' : $scope.achternaam, 'bpm' : $scope.bpm }).then(function (res) {
     $scope.result = res;
   })
 });
