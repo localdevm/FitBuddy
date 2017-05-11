@@ -8,19 +8,17 @@ app.use(express.static('client'));
 
 var db; // Initialiseren van mongoDB variabele naam
 var dataTable; //Opslagen van data in formaat
-			   //"timestamp": ISODate(), "naam": "", "pulse": pulse
-			   //"timestamp" : ISODate(), "Naam": "Maarten"; "pulse": 67
 
-						//TODO Database link here
 	MongoClient.connect('mongodb://localhost/testmaarten', function (err, _db){
 		if (err) throw err;
 		if (err) console.log(err);
 		console.log("Connected to database");
-		db = _db //Als error is , weergeef error
+		db = _db
 		dataTable = db.collection('data');
 
 		dataTable.find().each(function(err, doc){
-			console.log(doc);
+			console.log(doc); //logt een null nadat alle data is weergeven
+					  //TODO Fix ^ bug
 		});
 
 	});
@@ -56,21 +54,16 @@ app.post('/api/data', function(req, res){
 console.log("Boejaka");
 	console.log(req.body);
 console.log("End");
-	data = {'timestamp': req.body.date, 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
+	data = {'timestamp': req.body.datum, 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
 	 console.log("entry created");
 	 	dataTable.insert(data, function (err, result){
-			console.log(err);
-				dataTable.find().toArray(function (err, persons){
-					console.log(err);
+			if (err) throw err;
+			//console.log(err);
+				dataTable.find().toArray(function (err, data){
+					if (err) throw err;
+					//console.log(err);
 						res.status(201).json(data);
 				});
 		});
 });
-
-
-
-
-	//Hallokes
-
-
-	app.listen(3000);
+app.listen(3000);
