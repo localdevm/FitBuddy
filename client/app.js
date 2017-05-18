@@ -1,6 +1,6 @@
 var app = angular.module('fitbuddy', []);
 
-app.controller('MainController', function($scope, $http){
+app.controller('MainController', function($scope, $http, $interval){
   $scope.result  = [];
   $http.get("http://188.226.148.45:3000/api/data").then(function (res){
     $scope.result = res.data;
