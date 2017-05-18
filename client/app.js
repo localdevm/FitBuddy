@@ -1,6 +1,7 @@
 var app = angular.module('fitbuddy', []);
 
-app.controller('MainController', function($scope, $http, $interval){
+app.controller('MainController', function($scope, $http, $interval, $interval){
+$interval(function(){
   $scope.results  = [];
   $http.get("http://188.226.148.45:3000/api/data").then(function (res){
     $scope.results = res.data;
@@ -8,8 +9,8 @@ app.controller('MainController', function($scope, $http, $interval){
 	console.log("resultaat");
 	console.log($scope.results.voornaam);
     console.log(res);
-
-  });
+});
+  },2000);
 /*
 $scope.naam = "maarten";
   $http.post("http://188.226.148.45:3000/api/data",
