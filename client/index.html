@@ -1,23 +1,25 @@
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>FitBuddy Monitor</title>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-			<script src="app.js"></script>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-			<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-			<link rel="stylesheet" href="thema.css">
-			</script>
-		</head>
-		<body ng-app="fitbuddy" ng-controller="MainController" >
-			<div class ="wrapper">
-				<div class="inputfield">
-					<input type="text" ng-model="name" placeholder="Search" />
-					<button ng-click="reqdata">Request Data</button>
-				</div>
-				<div>
-			<p ng-repeat="voornaam in result">{{voornaam}}</p>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FitBuddy Monitor</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+		<link rel="stylesheet" href="thema.css">
+		<link rel="shortcut icon" href="fitbuddy.ico" />
+		</script>
+	</head>
+	<body ng-app="fitbuddy" ng-controller="MainController" >
+		<div class ="wrapper">
+			<div class="inputfield">
+				<input type="text" ng-model="name" placeholder="Search" />
+				<button ng-click="reqdata">Request Data</button>
 			</div>
+			<div>
+		<p ng-repeat="result in results | filter: name ">{{"Naam :  " + result.voornaam + " Voornaam : " + result.achternaam + " BPM : " +  result.bpm}}</p>
+
 		</div>
 		</body>
 	</html>

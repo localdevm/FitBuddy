@@ -43,7 +43,7 @@ var dataTable; //Opslagen van data in formaat
 	});
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-	app.get('/api/data', function(req, res){
+	app.get('/api/data', function(req, res){i
 		dataTable.find().toArray(function (err, data){
 			console.log(err);
 		res.status(200).json(data);
@@ -51,9 +51,7 @@ var dataTable; //Opslagen van data in formaat
 	});
 
 app.post('/api/data', function(req, res){
-console.log("Boejaka");
 	console.log(req.body);
-console.log("End");
 	data = {'timestamp': req.body.datum, 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
 	 console.log("entry created");
 	 	dataTable.insert(data, function (err, result){
@@ -62,7 +60,8 @@ console.log("End");
 				dataTable.find().toArray(function (err, data){
 					if (err) throw err;
 					//console.log(err);
-						res.status(201).json(data);
+						res.status(201).json("data received");
+
 				});
 		});
 });
