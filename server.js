@@ -43,10 +43,10 @@ var dataTable; //Opslagen van data in formaat
 	});
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-	app.get('/api/data', function(req, res){i
+	app.get('/api/data', function(req, res){
 		dataTable.find().toArray(function (err, data){
-			console.log(err);
-		res.status(200).json(data);
+			if (err) throw err;
+				res.status(200).json(data);
 	})
 	});
 

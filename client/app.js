@@ -6,9 +6,8 @@ $interval(function(){
   $http.get("http://188.226.148.45:3000/api/data").then(function (res){
     $scope.results = res.data;
     console.log($scope.results);
-	console.log("resultaat");
-	console.log($scope.results.voornaam);
-    console.log(res);
+//	console.log($scope.results.voornaam);
+    //console.log(res);
 });
   },2000);
 /*
