@@ -17,9 +17,14 @@ h1 {
 }
 
 p  {
-  font-size: 18px;
+  font-size: 24px;
 }
 
+.inputfield {
+  margin-bottom: 100px;
+ 
+
+}
 button{
   color: black;
   border: none;
