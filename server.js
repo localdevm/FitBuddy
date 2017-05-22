@@ -43,16 +43,19 @@ var dataTable; //Opslagen van data in formaat
 	});
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
 	app.get('/api/data', function(req, res){
 		dataTable.find().toArray(function (err, data){
 			if (err) throw err;
 				res.status(200).json(data);
 	})
 	});
+	//TODO filter out duplicate voornaam + achternaam
+	//Gebruiker maarten wachters alleen BPM updaten en tonen 
 
 app.post('/api/data', function(req, res){
 	console.log(req.body);
-	data = {'timestamp': req.body.datum, 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
+	data = {'timestamp': Date.now(), 'voornaam': req.body.voornaam, 'achternaam': req.body.achternaam, 'bpm': req.body.bpm};
 	 console.log("entry created");
 	 	dataTable.insert(data, function (err, result){
 			if (err) throw err;
