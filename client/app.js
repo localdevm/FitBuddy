@@ -22,7 +22,7 @@ $interval(function(){
 					if ($scope.results[i].timestamp > $scope.filteredresults[y].timestamp)
 						$scope.filteredresults[y].timestamp = $scope.results[i].timestamp;
 						$scope.filteredresults[y].bpm = $scope.results[i].bpm;
-						console.log("BPM update");
+
 					}
 					else {
 						//Keep old one
