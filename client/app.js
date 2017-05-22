@@ -4,7 +4,7 @@ app.controller('MainController', function($scope, $http, $interval){
 $interval(function(){
   //Variabelen en arrays maken
   $scope.results  = [];
-  $scope.filteredresults = [1];
+  $scope.filteredresults = [];
 
   //GET our data
   $http.get("http://188.226.148.45:3000/api/data").then(function (res){
@@ -12,34 +12,29 @@ $interval(function(){
 	//Debugging
    rlength = $scope.results.length;
    length = $scope.filteredresults.length;
-    console.log($scope.results);
-    console.log(length); 
-    console.log("array grootte");
-    console.log(rlength);
-	
+		//Iterate over results	
 	for (var i = 0; i < rlength; i++){
-		nameadded = false;
+		var nameadded = false;
+			//Iterate over filtered results
 			for (var y = 0; y < length; y++){
-				//Kan niet aan voornaam en achternaam
-				console.log($scope.results[y]);
-				//TODO STUCK ON THE Y LOOP?
-					//Keeps iterating over the same record ...
-				if ($scope.results[y].voornaam == $scope.filteredresults.voornaam && $scope.results[y].achternaam == $scope.filteredresults.achternaam){
+//LOGIC ERROR SOMEWHERE IN HERE >
+				if ($scope.results[i].voornaam == $scope.filteredresults.voornaam && $scope.result[i].achternaam == $scope.filteredresults.achternaam){
 					nameadded = true;
-					if ($scope.results[y].timestamp > $scope.filteredresults.timestamp)
-						$scope.filteredresults.timestamp = $scope.results[y].timestamp;
-						$scope.filteredresults.bpm = $scope.results[y].bpm;
+					if ($scope.results[i].timestamp > $scope.filteredresults[y].timestamp)
+						$scope.filteredresults[y].timestamp = $scope.results[i].timestamp;
+						$scope.filteredresults[y].bpm = $scope.results[i].bpm;
 						console.log("BPM update");
 					}
 					else {
 						//Keep old one
-						console.log("nikske");
 					}
 				}
 				if (!nameadded) {
-					$scope.filteredresults.push($scope.results[y]);
-				//	console.log("result opgeslagen");
+					$scope.filteredresults.push($scope.results[i]);
+					console.log("filtered");
+					console.log($scope.filteredresults);
 				}
+//< LOGIC ERROR SOMEWHERE IN THERE
 			}
 	});
   },2000);
