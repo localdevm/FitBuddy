@@ -4,7 +4,7 @@ app.controller('MainController', function($scope, $http, $interval){
 $interval(function(){
   //Variabelen en arrays maken
   $scope.results  = [];
-  $scope.filteredresults = [];
+  $scope.filteredresults = [1];
 
   //GET our data
   $http.get("http://188.226.148.45:3000/api/data").then(function (res){
@@ -19,15 +19,17 @@ $interval(function(){
 	
 	for (var i = 0; i < rlength; i++){
 		nameadded = false;
-		console.log("loop1");
 			for (var y = 0; y < length; y++){
-				if (result.voornaam == filteredresult.voornaam && result.achternaam == filteredresult.achternaam){
-					console.log("test");
+				//Kan niet aan voornaam en achternaam
+				console.log($scope.results[y]);
+				//TODO STUCK ON THE Y LOOP?
+					//Keeps iterating over the same record ...
+				if ($scope.results[y].voornaam == $scope.filteredresults.voornaam && $scope.results[y].achternaam == $scope.filteredresults.achternaam){
 					nameadded = true;
-					if (result.timestamp > filteredresult.timestamp){
-						filteredresult.timestamp = result.timestamp;
-						filteredresult.bpm = result.bpm;
-						console.log("result opgeslagen");
+					if ($scope.results[y].timestamp > $scope.filteredresults.timestamp)
+						$scope.filteredresults.timestamp = $scope.results[y].timestamp;
+						$scope.filteredresults.bpm = $scope.results[y].bpm;
+						console.log("BPM update");
 					}
 					else {
 						//Keep old one
@@ -35,11 +37,10 @@ $interval(function(){
 					}
 				}
 				if (!nameadded) {
-					filteredresults.push(result);
+					$scope.filteredresults.push($scope.results[y]);
+				//	console.log("result opgeslagen");
 				}
 			}
-	}
-    
-});
+	});
   },2000);
 });
