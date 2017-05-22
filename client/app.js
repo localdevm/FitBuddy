@@ -17,19 +17,21 @@ $interval(function(){
     console.log("array grootte");
     console.log(rlength);
 	
-	for (var i = 0; i = rlength; i++){
+	for (var i = 0; i < rlength; i++){
 		nameadded = false;
-		console.log("wuuut");
-			for (var y = 0; y = length; y++){
+		console.log("loop1");
+			for (var y = 0; y < length; y++){
 				if (result.voornaam == filteredresult.voornaam && result.achternaam == filteredresult.achternaam){
 					console.log("test");
 					nameadded = true;
 					if (result.timestamp > filteredresult.timestamp){
 						filteredresult.timestamp = result.timestamp;
 						filteredresult.bpm = result.bpm;
+						console.log("result opgeslagen");
 					}
 					else {
 						//Keep old one
+						console.log("nikske");
 					}
 				}
 				if (!nameadded) {
