@@ -26,7 +26,7 @@ $interval(function(){
 						console.log("BPM update");
 					}
 					else {
-						//Keep old one ddd
+						//Keep old one ddddd
 					}
 				}
 				if (!nameadded) {
