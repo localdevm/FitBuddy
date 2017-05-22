@@ -11,14 +11,13 @@ $interval(function(){
     $scope.results = res.data;
 	//Debugging
    rlength = $scope.results.length;
-   length = $scope.filteredresults.length;
 		//Iterate over results	
 	for (var i = 0; i < rlength; i++){
+		length =  $scope.filteredresults.length;
 		var nameadded = false;
 			//Iterate over filtered results
 			for (var y = 0; y < length; y++){
-//LOGIC ERROR SOMEWHERE IN HERE >
-				if ($scope.results[i].voornaam == $scope.filteredresults.voornaam && $scope.result[i].achternaam == $scope.filteredresults.achternaam){
+				if ($scope.results[i].voornaam == $scope.filteredresults[y].voornaam && $scope.results[i].achternaam == $scope.filteredresults[y].achternaam){
 					nameadded = true;
 					if ($scope.results[i].timestamp > $scope.filteredresults[y].timestamp)
 						$scope.filteredresults[y].timestamp = $scope.results[i].timestamp;
@@ -26,15 +25,14 @@ $interval(function(){
 						console.log("BPM update");
 					}
 					else {
-						//Keep old oned
+						//Keep old one
 					}
 				}
 				if (!nameadded) {
 					$scope.filteredresults.push($scope.results[i]);
-					console.log("filtered");
-					console.log($scope.filteredresults);
+
+
 				}
-//< LOGIC ERROR SOMEWHERE IN THERE
 			}
 	});
   },2000);
