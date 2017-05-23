@@ -22,7 +22,7 @@ p  {
 
 .inputfield {
   margin-bottom: 100px;
- 
+
 
 }
 button{
@@ -51,4 +51,18 @@ input {
   height: 100px;
   text-align: center;
   padding-top: 40px;
+}
+
+.opm {
+  font-weight: bold;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.74);
+  text-align: center;
 }
