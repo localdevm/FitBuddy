@@ -1,11 +1,11 @@
 # FitBuddy
 Your favourite Heart Rate Monitor wearable application.
 
-# Project
-Monitor the saved data in our database. Now you can view all people and a live feed of their BPM.
-
-# TODO
- * Keep server running 24/7
- * Add usability to the client
- * Improve interface
- * Add actual useability in the form of ng-repeat. The user can also apply a filter to view the records they want to see
+# How to USE
+1. SSH into the server (login details provided to teachers)
+2. CD to /opt/2CHealth
+3. Open 2 windows using screen
+4. Run 'node server.js' and detatch from screen
+5. run 'mongo testmaarten' to monitor databases
+6. Send data to the server using the application
+7. Go to the webaddress and enjoy 
