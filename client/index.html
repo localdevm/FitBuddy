@@ -20,17 +20,13 @@
 				<button ng-click="reqdata">Request Data</button>
 			</div>
 			<div>
-		<p ng-repeat="filteredresult  in filteredresults | filter: name "><span><p class="opm">Naam : </p>{{filteredresult.voornaam}}</span>
-																																			<span><p class="opm"> Achternaam : </p>{{filteredresult.achternaam}}</span>
-																																			<span><p class="opm">BPM : </p>{{filteredresult.bpm}}</span></p>
-
-
+		<p ng-repeat="filteredresult  in filteredresults | filter: name ">{{"Naam :  " + filteredresult.voornaam + " Voornaam : " + filteredresult.achternaam + " BPM : " +  filteredresult.bpm}}</p>
 
 		</div>
-		<footer>
+		<div class="footer">
 			<p>	FitBuddy Enterprises<br>
 				+32 471 2000 71 <br>
 			</p>
-		</footer>
+		</div>
 		</body>
 	</html>
